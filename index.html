@@ -1,173 +1,70 @@
-dashboard-project/
-│
-├── server.js  <-- Código completo: Backend + Frontend en un solo archivo
-├── client/    <-- Carpeta que contiene los archivos React
-│   ├── public/
-│   ├── src/
-│   ├── package.json
-│   └── etc...
-└── package.json  <-- Dependencias para todo el proyecto
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const path = require('path');
-const { useState, useEffect } = require('react');
-const axios = require('axios');
-const { Line } = require('react-chartjs-2');
-const Chart = require('chart.js/auto');
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remittix</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Remittix - Envíos Internacionales</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#about">Sobre nosotros</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
-const app = express();
-const PORT = process.env.PORT || 5000;
+    <section id="home">
+        <h2>Envía dinero de manera rápida y segura</h2>
+        <p>En Remittix, facilitamos tus transferencias internacionales con tarifas competitivas.</p>
+        <button id="send-money">Enviar Dinero</button>
+    </section>
 
-// Middleware
-app.use(cors());
-app.use(express.json());
+    <section id="about">
+        <h2>Sobre Remittix</h2>
+        <p>Somos una plataforma segura para realizar envíos internacionales de dinero con criptomonedas y métodos tradicionales.</p>
+    </section>
 
-// Conectar a MongoDB (asegúrate de tener MongoDB instalado o usar Atlas)
-mongoose.connect('mongodb://localhost:27017/dashboard', { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log("Conectado a MongoDB"))
-    .catch((error) => console.log(error));
+    <section id="contact">
+        <h2>Contacto</h2>
+        <p>Contáctanos para más detalles sobre nuestros servicios.</p>
+        <form action="submit_form.php" method="POST">
+            <input type="text" name="name" placeholder="Tu nombre" required>
+            <input type="email" name="email" placeholder="Tu correo" required>
+            <textarea name="message" placeholder="Tu mensaje" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
 
-// Modelos
-const InversionSchema = new mongoose.Schema({
-    amount: Number,
-    type: String,
-    return: Number,
-    risk: String
-});
+    <footer>
+        <p>&copy; 2025 Remittix. Todos los derechos reservados.</p>
+    </footer>
 
-const Inversion = mongoose.model('Inversion', InversionSchema);
+    <!-- PayPal Button -->
+    <div id="paypal-button-container"></div>
 
-// Endpoint para obtener inversiones
-app.get('/api/inversiones', async (req, res) => {
-    const inversiones = await Inversion.find();
-    res.json(inversiones);
-});
-
-// Endpoint para agregar inversiones
-app.post('/api/inversiones', async (req, res) => {
-    const { amount, type, return: retorno, risk } = req.body;
-    const nuevaInversion = new Inversion({ amount, type, return: retorno, risk });
-    await nuevaInversion.save();
-    res.json(nuevaInversion);
-});
-
-// Serve React files in production
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, 'client/build')));
-    
-    app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-    });
-}
-
-// Iniciar el servidor
-app.listen(PORT, () => {
-    console.log(`Servidor escuchando en el puerto ${PORT}`);
-});
-
-// ------------------------------- FRONTEND (React) -------------------------------
-
-// Usamos un código de React para el dashboard dentro del mismo archivo.
-const Dashboard = () => {
-    const [inversiones, setInversiones] = useState([]);
-    const [chartData, setChartData] = useState({});
-
-    // Obtener datos de inversiones
-    useEffect(() => {
-        axios.get('http://localhost:5000/api/inversiones')
-            .then(response => {
-                setInversiones(response.data);
-                const data = {
-                    labels: response.data.map(i => i.type),
-                    datasets: [{
-                        label: 'Ganancia Estimada',
-                        data: response.data.map(i => i.return),
-                        fill: false,
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        tension: 0.1
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID"></script>
+    <script>
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '10.00'
+                        }
                     }]
-                };
-                setChartData(data);
-            })
-            .catch(error => console.error(error));
-    }, []);
-
-    return (
-        <div className="dashboard">
-            <h1>Dashboard de Inversiones</h1>
-            
-            {/* Sección de Gráfico de Ganancia */}
-            <div>
-                <h2>Ganancia Estimada</h2>
-                <Line data={chartData} />
-            </div>
-            
-            {/* Sección de Inversiones */}
-            <div>
-                <h2>Mis Inversiones</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Tipo</th>
-                            <th>Monto</th>
-                            <th>Ganancia Estimada</th>
-                            <th>Riesgo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {inversiones.map(inversion => (
-                            <tr key={inversion._id}>
-                                <td>{inversion.type}</td>
-                                <td>${inversion.amount}</td>
-                                <td>${inversion.return}</td>
-                                <td>{inversion.risk}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
-
-            {/* Agregar nueva inversión */}
-            <div>
-                <h3>Agregar Nueva Inversión</h3>
-                <form onSubmit={e => {
-                    e.preventDefault();
-                    const form = new FormData(e.target);
-                    const newInversion = {
-                        amount: form.get('amount'),
-                        type: form.get('type'),
-                        return: form.get('return'),
-                        risk: form.get('risk')
-                    };
-                    axios.post('http://localhost:5000/api/inversiones', newInversion)
-                        .then(response => setInversiones([...inversiones, response.data]));
-                }}>
-                    <input type="number" name="amount" placeholder="Monto" required />
-                    <input type="text" name="type" placeholder="Tipo de Inversión" required />
-                    <input type="number" name="return" placeholder="Ganancia Estimada" required />
-                    <input type="text" name="risk" placeholder="Riesgo" required />
-                    <button type="submit">Agregar</button>
-                </form>
-            </div>
-        </div>
-    );
-};
-
-// ------------------------------- FRONTEND (React) -------------------------------
-const { useState, useEffect } = require('react');
-const ReactDOM = require('react-dom');
-
-const App = () => {
-    return (
-        <React.StrictMode>
-            <Dashboard />
-        </React.StrictMode>
-    );
-};
-
-ReactDOM.render(
-    <App />,
-    document.getElementById('root')
-);
-
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    alert('Transacción completada por ' + details.payer.name.given_name);
+                });
+            }
+        }).render('#paypal-button-container');
+    </script>
+</body>
+</html>
