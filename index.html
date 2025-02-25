@@ -3,8 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remittix</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Remittix - Envíos Internacionales</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #2D3E50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 10px 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #2D3E50;
+        }
+
+        section p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #45a049;
+        }
+
+        .participation-info {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .participation-info h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .participation-info p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        .redirect-button {
+            background-color: #2D3E50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .redirect-button:hover {
+            background-color: #1C2A37;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        #paypal-button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -12,7 +141,7 @@
         <nav>
             <ul>
                 <li><a href="#home">Inicio</a></li>
-                <li><a href="#about">Sobre nosotros</a></li>
+                <li><a href="#about">Sobre Nosotros</a></li>
                 <li><a href="#contact">Contacto</a></li>
             </ul>
         </nav>
@@ -20,23 +149,32 @@
 
     <section id="home">
         <h2>Envía dinero de manera rápida y segura</h2>
-        <p>En Remittix, facilitamos tus transferencias internacionales con tarifas competitivas.</p>
-        <button id="send-money">Enviar Dinero</button>
+        <p>Realiza tus transferencias internacionales con las mejores tarifas y seguridad.</p>
+        <button class="cta-button" id="send-money">Enviar Dinero</button>
     </section>
 
     <section id="about">
         <h2>Sobre Remittix</h2>
-        <p>Somos una plataforma segura para realizar envíos internacionales de dinero con criptomonedas y métodos tradicionales.</p>
+        <p>En Remittix, ofrecemos una plataforma segura y eficiente para enviar dinero a nivel mundial, con opciones de pago en criptomonedas y métodos tradicionales.</p>
+    </section>
+
+    <section id="participation">
+        <div class="participation-info">
+            <h3>Valor de Participación</h3>
+            <p>¡Participa en nuestro programa y gana recompensas! Valor de participación: <strong>$10.00 USD</strong>.</p>
+            <p>Tu participación nos ayuda a mejorar el servicio y permite realizar envíos rápidos a nivel global.</p>
+            <button class="redirect-button" onclick="window.location.href='https://www.otra-pagina.com'">Más Información</button>
+        </div>
     </section>
 
     <section id="contact">
         <h2>Contacto</h2>
-        <p>Contáctanos para más detalles sobre nuestros servicios.</p>
+        <p>Si tienes preguntas o necesitas más detalles, no dudes en contactarnos.</p>
         <form action="submit_form.php" method="POST">
             <input type="text" name="name" placeholder="Tu nombre" required>
             <input type="email" name="email" placeholder="Tu correo" required>
             <textarea name="message" placeholder="Tu mensaje" required></textarea>
-            <button type="submit">Enviar</button>
+            <button type="submit" class="cta-button">Enviar</button>
         </form>
     </section>
 
