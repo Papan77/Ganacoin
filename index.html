@@ -9,94 +9,158 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #333;
-            color: #fff;
+            background-color: #f7f7f7;
+            color: #333;
         }
         .header {
             background-color: #28a745;
             text-align: center;
-            padding: 50px;
+            padding: 100px 0;
             color: #fff;
         }
         .header h1 {
-            font-size: 48px;
+            font-size: 60px;
         }
-        .container {
+        .header p {
+            font-size: 24px;
+        }
+        .section {
             width: 80%;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 0;
         }
         .cta-button {
             background-color: #ffc107;
-            padding: 15px 30px;
+            padding: 15px 40px;
             color: #333;
-            font-size: 20px;
+            font-size: 24px;
             font-weight: bold;
             border: none;
             cursor: pointer;
             border-radius: 8px;
             display: block;
             margin: 30px auto;
+            text-align: center;
         }
         .cta-button:hover {
             background-color: #e0a800;
         }
-        .crypto-info {
+        .offer {
             background-color: #444;
-            padding: 20px;
-            margin-top: 20px;
+            color: #fff;
+            padding: 40px;
             border-radius: 8px;
-            text-align: center;
+            margin-top: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .offer h2 {
+            font-size: 32px;
+        }
+        .offer p {
+            font-size: 20px;
+        }
+        .offer .price {
+            font-size: 40px;
+            font-weight: bold;
+            color: #ffc107;
+        }
+        .offer .original-price {
+            text-decoration: line-through;
+            color: #999;
+        }
+        .crypto-info {
+            background-color: #333;
+            color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            margin-top: 40px;
         }
         .crypto-info h2 {
             font-size: 30px;
         }
         .crypto-info p {
-            font-size: 18px;
+            font-size: 20px;
         }
         .crypto-address {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: bold;
             color: #28a745;
         }
         .footer {
             background-color: #333;
+            color: #ccc;
             text-align: center;
             padding: 20px;
-            color: #ccc;
+        }
+        .footer p {
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
 
+    <!-- Header -->
     <div class="header">
         <h1>¡Participa por $25K!</h1>
-        <p>¡No pierdas esta oportunidad única! Invierte hoy y sé parte de esta gran oferta.</p>
+        <p>¡Invierte hoy mismo y gana hasta $25,000 con nuestra oferta exclusiva! Solo por tiempo limitado.</p>
     </div>
 
-    <div class="container">
-        <h2>¿Cómo Funciona?</h2>
-        <p>Invierte en nuestra plataforma y tendrás la posibilidad de ganar hasta $25,000. Realiza tu pago ahora usando las criptomonedas disponibles.</p>
-        
+    <!-- ¿Cómo Funciona? -->
+    <div class="section">
+        <h2 style="text-align:center; font-size: 36px;">¿Cómo Funciona?</h2>
+        <p style="font-size: 20px; text-align: center;">Invierte en nuestra plataforma y tendrás la oportunidad de ganar hasta $25,000. Con una pequeña inversión, estarás participando en nuestro sorteo exclusivo. ¡Es simple y rápido!</p>
         <button class="cta-button" onclick="window.location.href='#payment'">¡Participa Ahora!</button>
+    </div>
 
-        <div class="crypto-info" id="payment">
+    <!-- Oferta Especial -->
+    <div class="section">
+        <div class="offer">
+            <h2>Oferta Especial - ¡No Te Lo Pierdas!</h2>
+            <p>Compra ahora y obtén un acceso exclusivo a nuestra plataforma por un precio increíble. Antes ~$199.99~, ahora por solo:</p>
+            <p class="price">$29.99</p>
+            <p class="original-price">Antes $199.99</p>
+            <button class="cta-button" onclick="window.location.href='#payment'">¡Compra Ahora y Ahorra!</button>
+        </div>
+    </div>
+
+    <!-- ¿Cómo Pagar con Criptomonedas? -->
+    <div class="section" id="payment">
+        <div class="crypto-info">
             <h2>Realiza tu Pago con Criptomonedas</h2>
-            <p>Para participar, realiza el pago usando una de las siguientes criptomonedas:</p>
-            <p><strong>BTC, ETH o BNB</strong></p>
+            <p>Para participar, realiza el pago utilizando una de las siguientes criptomonedas:</p>
+            <p><strong>Bitcoin (BTC), Ethereum (ETH) o Binance Coin (BNB)</strong></p>
             <p>Dirección de wallet:</p>
             <p class="crypto-address">
                 BTC: 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa<br>
                 ETH: 0xDEf8B982EA283000b60A05b8d6E1A3aAB457F92e<br>
                 BNB: bnb1lzppf5g7qlj4e03f6tvsgtd6cqqzfwjvknpq4l
             </p>
-            <p>Recuerda que una vez realices el pago, tendrás acceso a participar. ¡Es rápido y fácil!</p>
+            <p>Recuerda que después de realizar el pago, recibirás acceso inmediato a participar en el sorteo.</p>
         </div>
-
     </div>
 
+    <!-- Testimonios -->
+    <div class="section">
+        <h2 style="text-align:center; font-size: 36px;">Testimonios de Participantes</h2>
+        <p style="font-size: 20px; text-align: center;">Nuestros usuarios están encantados con los resultados. ¡Lee lo que dicen algunos de ellos!</p>
+        <div class="offer" style="background-color: #555;">
+            <p style="font-size: 18px; text-align: center; font-style: italic;">"¡Una oportunidad increíble! Pagué $29.99 y ahora estoy participando por $25,000. ¡Gracias por esta oferta!" - Juan P.</p>
+            <p style="font-size: 18px; text-align: center; font-style: italic;">"No puedo creer que por tan poco dinero pueda ganar tanto. ¡Estoy emocionado!" - Carla R.</p>
+        </div>
+    </div>
+
+    <!-- Garantía de Participación -->
+    <div class="section">
+        <div class="offer" style="background-color: #444;">
+            <h2>¡Garantía de Participación!</h2>
+            <p>Con nuestra plataforma, tienes la garantía de participar en el sorteo por $25,000. Una vez que realices el pago, tu participación estará asegurada. ¡No pierdas esta oportunidad única!</p>
+            <button class="cta-button" onclick="window.location.href='#payment'">¡Participa Ahora!</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <div class="footer">
-        <p>¡Gracias por confiar en nosotros! © 2025</p>
+        <p>© 2025 - ¡Gracias por confiar en nosotros!</p>
     </div>
 
 </body>
