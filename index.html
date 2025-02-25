@@ -3,113 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gana $25,000 - Oportunidad Única</title>
+    <title>Participa por $25K - ¡Oferta Exclusiva!</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
             margin: 0;
             padding: 0;
-            text-align: center;
+            background-color: #333;
+            color: #fff;
         }
         .header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px;
-            font-size: 24px;
+            background-color: #28a745;
+            text-align: center;
+            padding: 50px;
+            color: #fff;
+        }
+        .header h1 {
+            font-size: 48px;
         }
         .container {
-            padding: 20px;
-        }
-        .offer {
-            background-color: #ffffff;
-            padding: 20px;
-            margin: 20px auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 80%;
+            margin: 0 auto;
+            padding: 20px;
         }
-        .offer h2 {
-            color: #4CAF50;
-        }
-        .price {
-            font-size: 24px;
+        .cta-button {
+            background-color: #ffc107;
+            padding: 15px 30px;
+            color: #333;
+            font-size: 20px;
             font-weight: bold;
-            color: #ff5722;
-        }
-        .cta {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px 20px;
             border: none;
             cursor: pointer;
-            font-size: 20px;
-            border-radius: 5px;
-            margin-top: 20px;
+            border-radius: 8px;
+            display: block;
+            margin: 30px auto;
         }
-        .cta:hover {
-            background-color: #45a049;
+        .cta-button:hover {
+            background-color: #e0a800;
         }
         .crypto-info {
-            background-color: #f9f9f9;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #444;
+            padding: 20px;
             margin-top: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .crypto-info h2 {
+            font-size: 30px;
+        }
+        .crypto-info p {
+            font-size: 18px;
         }
         .crypto-address {
-            font-size: 18px;
-            font-weight: bold;
-            color: #4CAF50;
-        }
-        .participants {
-            font-size: 18px;
-            color: #444;
-            margin-top: 20px;
-        }
-        .live-counter {
             font-size: 22px;
             font-weight: bold;
-            color: #ff5722;
+            color: #28a745;
+        }
+        .footer {
+            background-color: #333;
+            text-align: center;
+            padding: 20px;
+            color: #ccc;
         }
     </style>
-    <script>
-        function redirectToWallet() {
-            window.location.href = 'https://www.blockchain.com/btc/payment_request?address=TU_DIRECCION_BTC&amount=0.001';
-        }
-
-        function updateParticipants() {
-            let count = Math.floor(Math.random() * (3000 - 1500) + 1500);
-            document.getElementById("counter").innerText = count + " personas participando ahora!";
-        }
-
-        setInterval(updateParticipants, 3000);
-    </script>
 </head>
 <body>
 
     <div class="header">
-        🎉 ¡Participa y Gana $25,000! 💰
+        <h1>¡Participa por $25K!</h1>
+        <p>¡No pierdas esta oportunidad única! Invierte hoy y sé parte de esta gran oferta.</p>
     </div>
 
     <div class="container">
-        <div class="offer">
-            <h2>¡Solo necesitas $25 para entrar! 🔥</h2>
-            <p>¡Aprovecha esta oportunidad única y cambia tu vida! Solo quedan pocas plazas disponibles.</p>
-            <p class="price">Pago: $25 en BTC</p>
-            <button class="cta" onclick="redirectToWallet()">¡Participar Ahora!</button>
+        <h2>¿Cómo Funciona?</h2>
+        <p>Invierte en nuestra plataforma y tendrás la posibilidad de ganar hasta $25,000. Realiza tu pago ahora usando las criptomonedas disponibles.</p>
+        
+        <button class="cta-button" onclick="window.location.href='#payment'">¡Participa Ahora!</button>
+
+        <div class="crypto-info" id="payment">
+            <h2>Realiza tu Pago con Criptomonedas</h2>
+            <p>Para participar, realiza el pago usando una de las siguientes criptomonedas:</p>
+            <p><strong>BTC, ETH o BNB</strong></p>
+            <p>Dirección de wallet:</p>
+            <p class="crypto-address">
+                BTC: 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa<br>
+                ETH: 0xDEf8B982EA283000b60A05b8d6E1A3aAB457F92e<br>
+                BNB: bnb1lzppf5g7qlj4e03f6tvsgtd6cqqzfwjvknpq4l
+            </p>
+            <p>Recuerda que una vez realices el pago, tendrás acceso a participar. ¡Es rápido y fácil!</p>
         </div>
 
-        <div class="crypto-info">
-            <h3>📢 Dirección de Pago BTC</h3>
-            <p class="crypto-address">1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</p>
-            <p>✅ Asegúrate de enviar exactamente $25 en BTC.</p>
-        </div>
+    </div>
 
-        <div class="participants">
-            🔥 <span class="live-counter" id="counter">Cargando...</span>
-        </div>
+    <div class="footer">
+        <p>¡Gracias por confiar en nosotros! © 2025</p>
     </div>
 
 </body>
