@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software en Oferta - ¡Aprovecha esta Oportunidad!</title>
+    <title>Gana $25,000 - Oportunidad Única</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,24 +11,24 @@
             color: #333;
             margin: 0;
             padding: 0;
+            text-align: center;
         }
         .header {
             background-color: #4CAF50;
             color: white;
-            text-align: center;
             padding: 20px;
+            font-size: 24px;
         }
         .container {
-            width: 80%;
-            margin: 0 auto;
             padding: 20px;
         }
         .offer {
             background-color: #ffffff;
             padding: 20px;
-            margin: 20px 0;
+            margin: 20px auto;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
         }
         .offer h2 {
             color: #4CAF50;
@@ -38,18 +38,15 @@
             font-weight: bold;
             color: #ff5722;
         }
-        .original-price {
-            text-decoration: line-through;
-            color: #999;
-        }
         .cta {
             background-color: #4CAF50;
             color: white;
-            padding: 10px 20px;
+            padding: 15px 20px;
             border: none;
             cursor: pointer;
-            font-size: 18px;
+            font-size: 20px;
             border-radius: 5px;
+            margin-top: 20px;
         }
         .cta:hover {
             background-color: #45a049;
@@ -57,50 +54,61 @@
         .crypto-info {
             background-color: #f9f9f9;
             padding: 15px;
-            margin-top: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .crypto-info h3 {
-            color: #333;
-        }
-        .crypto-info p {
-            font-size: 16px;
+            margin-top: 20px;
         }
         .crypto-address {
             font-size: 18px;
             font-weight: bold;
             color: #4CAF50;
         }
+        .participants {
+            font-size: 18px;
+            color: #444;
+            margin-top: 20px;
+        }
+        .live-counter {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ff5722;
+        }
     </style>
+    <script>
+        function redirectToWallet() {
+            window.location.href = 'https://www.blockchain.com/btc/payment_request?address=TU_DIRECCION_BTC&amount=0.001';
+        }
+
+        function updateParticipants() {
+            let count = Math.floor(Math.random() * (3000 - 1500) + 1500);
+            document.getElementById("counter").innerText = count + " personas participando ahora!";
+        }
+
+        setInterval(updateParticipants, 3000);
+    </script>
 </head>
 <body>
 
     <div class="header">
-        <h1>¡OFERTA EXCLUSIVA PARA TI!</h1>
-        <p>Solo hoy, compra nuestro software increíble con un descuento del 85%</p>
+        🎉 ¡Participa y Gana $25,000! 💰
     </div>
 
     <div class="container">
         <div class="offer">
-            <h2>Software Especial - ¡Haz crecer tu negocio hoy!</h2>
-            <p>¡Este software cambiará la manera en que operas tu negocio! Antes $199.99, ahora por solo:</p>
-            <p class="price">$29.99</p>
-            <p class="original-price">Antes $199.99</p>
-            <button class="cta" onclick="window.location.href='#purchase'">¡Comprar Ahora!</button>
+            <h2>¡Solo necesitas $25 para entrar! 🔥</h2>
+            <p>¡Aprovecha esta oportunidad única y cambia tu vida! Solo quedan pocas plazas disponibles.</p>
+            <p class="price">Pago: $25 en BTC</p>
+            <button class="cta" onclick="redirectToWallet()">¡Participar Ahora!</button>
         </div>
 
         <div class="crypto-info">
-            <h3>¿Cómo Pagar con Criptomonedas?</h3>
-            <p>Para comprar el software, por favor realiza el pago en la siguiente dirección de criptomonedas. Asegúrate de elegir la red correcta y enviar el monto exacto.</p>
-            <p class="crypto-address">Dirección BTC: <span>1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</span></p>
-            <p>Red: <strong>Bitcoin (BTC)</strong></p>
-            <p>Recuerda que una vez que realices el pago, recibirás el acceso a tu software inmediatamente.</p>
+            <h3>📢 Dirección de Pago BTC</h3>
+            <p class="crypto-address">1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</p>
+            <p>✅ Asegúrate de enviar exactamente $25 en BTC.</p>
         </div>
 
-        <div class="offer">
-            <h2>¡Apresúrate! Solo por tiempo limitado.</h2>
-            <button class="cta" onclick="window.location.href='#purchase'">¡Compra ahora y ahorra!</button>
+        <div class="participants">
+            🔥 <span class="live-counter" id="counter">Cargando...</span>
         </div>
     </div>
 
